@@ -14,6 +14,6 @@ namespace DataAccess.Abstract
         void Update(Customer customer);
         void Delete(Customer customer);
 
-        List<Customer> GetAllCustomerId(int  customerId);
+        Customer GetById(int  customerId);
     }
 }

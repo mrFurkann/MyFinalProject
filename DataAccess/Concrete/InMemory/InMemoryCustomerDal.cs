@@ -14,15 +14,16 @@ namespace DataAccess.Concrete.InMemory
     {
 
         List<Customer> _customers;
+        
         public InMemoryCustomerDal()
         {
             //Bir VeriTabanından Geliyormuş Gibi Davranıyoruz.
             _customers = new List<Customer>
             {
-                new Customer{CustomerId=1,FirstName="Furkan",LastName="Koşar",City="İstanbul"},
-                new Customer{CustomerId=2,FirstName="Talha",LastName="Yıldız",City="Rize"},
-                new Customer{CustomerId=3,FirstName="Resul",LastName="Koca",City="Samsun"},
-                new Customer{CustomerId=4,FirstName="Engin",LastName="Demiroğ",City="Ankara"},
+                new Customer{CustomerId=1,FirstName="Furkan",LastName="Koşar",City="İstanbul",CompanyId=1},
+                new Customer{CustomerId=2,FirstName="Talha",LastName="Yıldız",City="Rize",CompanyId=2},
+                new Customer{CustomerId=3,FirstName="Resul",LastName="Koca",City="Samsun",CompanyId=1},
+                new Customer{CustomerId=4,FirstName="Engin",LastName="Demiroğ",City="Ankara",CompanyId=2},
 
             };
         }
@@ -65,16 +66,18 @@ namespace DataAccess.Concrete.InMemory
         {
             //Gönderdiğim müşteri id'sine sahip olan listedeki müşteriyi bul
             Customer customerToUptade = _customers.SingleOrDefault(x => x.CustomerId == customer.CustomerId);
-            
+
             customerToUptade.FirstName = customer.FirstName;
             customerToUptade.LastName = customer.LastName;
             customerToUptade.City = customer.City;
+
             
 
+
         }
-        public List<Customer> GetAllCustomerId(int customerId)
+        public Customer GetById(int customerId)
         {
-          return _customers.Where(x => x.CustomerId == customerId).ToList();
+            return _customers.FirstOrDefault(x => x.CustomerId == customerId);
         }
     }
 }
