@@ -27,19 +27,14 @@ namespace Business.Concrete
             
         }
 
-        public void add(Product product)
+        public List<Product> GetAllByCategoryId(int id)
         {
-            _productDal.Add(product);
+            return _productDal.GetAll(p => p.CategoryId== id);
         }
 
-        public void update(Product product)
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
         {
-            _productDal.Update(product);
-        }
-
-        public void delete(Product product)
-        {
-            _productDal.Delete(product);
+            return _productDal.GetAll(p=>p.UnitPrice<=min && p.UnitPrice<=max);
         }
     }
 }
