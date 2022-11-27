@@ -7,12 +7,6 @@ using System;
 namespace ConsoleUI
 {
     //SOLID
-
-
-
-
-
-
     class Program
     {
         static void Main(string[] args)

@@ -40,7 +40,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                return context.Set<Product>().SingleOrDefault(filter); //
+                return context.Set<Product>().SingleOrDefault(filter); 
             }
         }
 
@@ -49,7 +49,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (NorthwindContext contex = new NorthwindContext())
             {
 
-                return filter == null ? contex.Set<Product>().ToList():contex.Set<Product>().Where(filter).ToList();
+                return filter==null ? contex.Set<Product>().ToList():contex.Set<Product>().Where(filter).ToList();
             }
         }
 
